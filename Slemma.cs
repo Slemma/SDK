@@ -15,7 +15,7 @@ namespace Slemma
     public class API
     {
 
-        public static string SlemmaURL = "https://perm.slemma.com";
+        public static string SlemmaURL = "https://slemma.com";
 
         public string Token;
 
