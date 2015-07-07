@@ -39,7 +39,7 @@ namespace Slemma
 
         public string Call(string service, string method, object[] parameters)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SlemmaURL + "/api?s=" + service + "&m=" + method);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SlemmaURL + "/api/" + service + "/" + method);
             request.Headers.Add("sig", CalculateSHA1(AppSecret + Token, Encoding.UTF8));
             request.Headers.Add("appid", AppKey.ToString());
             request.Method = "POST";
@@ -85,7 +85,7 @@ namespace Slemma
 
         public string Import(StringBuilder csvContent, ImportSettings settings)
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SlemmaURL + "/api?s=ImportService&" + settings.getUrlParams());
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(SlemmaURL + "/api/ImportService/import?" + settings.getUrlParams());
             request.Headers.Add("sig", CalculateSHA1(AppSecret + Token, Encoding.UTF8));
             request.Headers.Add("appid", AppKey.ToString());
             request.Method = "POST";
