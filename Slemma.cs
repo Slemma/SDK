@@ -174,7 +174,7 @@ namespace Slemma
             List<string> res = new List<string>();
 
             if (!string.IsNullOrEmpty(Name))
-                res.Add("name=" + Name);
+                res.Add("name=" + HttpUtility.UrlEncode(Name));
 
             if (!string.IsNullOrEmpty(Delimiter))
                 res.Add("delimiter=" + Delimiter);
@@ -216,7 +216,7 @@ namespace Slemma
                 res.Add("quota=" + Quota);
 
             if (!string.IsNullOrEmpty(AppData))
-                res.Add("appdata=" + AppData);
+                res.Add("appdata=" + HttpUtility.UrlEncode(AppData));
 
             return string.Join("&", res);
         }
